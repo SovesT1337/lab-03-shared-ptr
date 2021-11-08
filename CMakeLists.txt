@@ -38,14 +38,14 @@ add_library(${PROJECT_NAME} STATIC
 
 add_executable(demo
         ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
-        sources/example.cpp include/shared_ptr.hpp)
+        include/shared_ptr.hpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
         "$<INSTALL_INTERFACE:include>"
         )
 
-target_link_libraries(demo ${PROJECT_NAME} include/tests.hpp)
+#target_link_libraries(demo ${PROJECT_NAME} include/tests.hpp)
 
 if (BUILD_TESTS)
     add_executable(tests

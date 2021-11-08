@@ -14,11 +14,11 @@ TEST(First, Constructor) {
 }
 
 TEST(Second, Swap) {
-  SharedPtr<int> ptr_1(new int(1337));
-  SharedPtr<int> ptr_2(new int(228));
-  ptr_1.swap(ptr_2);
-  EXPECT_EQ(*ptr_1, 228);
-  EXPECT_EQ(*ptr_2.get(), 1337);
+  SharedPtr<int> ptr1(new int(1337));
+  SharedPtr<int> ptr2(new int(228));
+  ptr1.swap(ptr2);
+  EXPECT_EQ(*ptr1, 228);
+  EXPECT_EQ(*ptr2.get(), 1337);
 }
 
 TEST(Third, Bool) {
