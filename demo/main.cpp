@@ -1,4 +1,4 @@
-#include <tests.hpp>
+#include <shared_ptr.hpp>
 
 int main() {
   return 0;
