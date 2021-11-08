@@ -1,9 +1,5 @@
-// Copyright 2021 Your Name <your_email>
+//
+// Created by sovest on 07.11.2021.
+//
 
-#include <stdexcept>
-
-#include <example.hpp>
-
-auto example() -> void {
-  throw std::runtime_error("not implemented");
-}
+int Shit() { return 0; }
