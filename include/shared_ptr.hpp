@@ -2,11 +2,12 @@
 // Created by sovest on 07.11.2021.
 //
 
-#ifndef TEMPLATE_SHARED_PTR_HPP
-#define TEMPLATE_SHARED_PTR_HPP
+#ifndef INCLUDE_SHARED_PTR_HPP_
+#define INCLUDE_SHARED_PTR_HPP_
 
 #include <atomic>
 #include <iostream>
+#include <utility>
 
 template <typename T>
 class SharedPtr {
@@ -109,4 +110,4 @@ class SharedPtr {
   auto use_count() const -> size_t { return *n; }
 };
 
-#endif  // TEMPLATE_SHARED_PTR_HPP
+#endif  // INCLUDE_SHARED_PTR_HPP_
