@@ -4,6 +4,9 @@
 
 #include <shared_ptr.hpp>
 
+//is move constructable
+//is move assignable
+
 TEST(First, Constructor) {
   SharedPtr<int> ptr1(new int(1337));
   SharedPtr<int> ptr2(ptr1);
@@ -46,4 +49,9 @@ TEST(Fifth, Reset) {
   EXPECT_EQ(ptr3.get(), nullptr);
   EXPECT_EQ(ptr4.use_count(), 1);
   EXPECT_EQ(*ptr4, 228);
+}
+
+TEST(Sixth, Move) {
+  EXPECT_TRUE(std::is_move_assignable<SharedPtr<int>>::value);
+  EXPECT_TRUE(std::is_move_constructible<SharedPtr<int>>::value);
 }

@@ -33,10 +33,10 @@ class SharedPtr {
   }
 
   SharedPtr(SharedPtr&& r) noexcept {
-    data = r.data;
-    n = r.n;
-    r.data = nullptr;
-    r.n = nullptr;
+    if (data != r.data) {
+      data = std::move(r.data);
+      n = std::move(r.n);
+    }
   }
 
   ~SharedPtr() {
@@ -51,6 +51,7 @@ class SharedPtr {
   }
 
   auto operator=(const SharedPtr& r) -> SharedPtr& {
+    if (data == r.data) return *this;
     data = r.data;
     n = r.n;
     if (r.data != nullptr) (*this->n)++;
@@ -58,10 +59,9 @@ class SharedPtr {
   }
 
   auto operator=(SharedPtr&& r) noexcept -> SharedPtr& {
-    data = r.data;
-    n = r.n;
-    r.data = nullptr;
-    r.n = nullptr;
+    if (data == r.data) return *this;
+    data = std::move(r.data);
+    n = std::move(r.n);
     return *this;
   }
 
